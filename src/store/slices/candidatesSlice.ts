@@ -2,7 +2,7 @@ import { ActionReducerMapBuilder, createAsyncThunk, createSlice } from "@reduxjs
 import { candidatesState, DataStatus } from "../../types/reduxTypes/reduxTypes";
 import { ICandidate } from "../../types/ResModels/ICandidate";
 
-const BASE_URL = "http://localhost:8200/";
+const BASE_URL = "http://localhost:8200";
 
 const initialState: candidatesState = {
     error      : null,
@@ -14,7 +14,7 @@ export const fetchCandidates = createAsyncThunk(
     "candidates/getList",
     async (_, thunkApi) => {
         try {
-            const candidates = await fetch(`${BASE_URL}/election`).then(d => d.json()) as ICandidate[];
+            const candidates = await fetch(`${BASE_URL}/elections`).then(d => d.json()) as ICandidate[];
             return thunkApi.fulfillWithValue(candidates);
         } catch(err) {
             const error = err as Error;
