@@ -5,6 +5,7 @@ import Map from './components/Map';
 import Login from './components/Login';
 import Register from './components/Register';
 import { fetchUser } from './store/slices/userSlice';
+import Vote from './components/Vote';
 
 function App() {
   const candidates = useAppSelector(s => s.candidates.candidates);
@@ -18,6 +19,7 @@ function App() {
       <div>
         <Register/>
         <Login/>
+        <Vote/>
         <Map/>
         {candidates.map(c => <p>{JSON.stringify(c)}</p>)}
       </div>
