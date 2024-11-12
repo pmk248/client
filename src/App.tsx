@@ -6,6 +6,8 @@ import Login from './components/Login';
 import Register from './components/Register';
 import { fetchUser } from './store/slices/userSlice';
 import Vote from './components/Vote';
+import ProtectedRoute from './utils/ProtectedRoutes';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   const candidates = useAppSelector(s => s.candidates.candidates);
@@ -17,11 +19,18 @@ function App() {
   return (
     <>
       <div>
-        <Register/>
-        <Login/>
-        <Vote/>
-        <Map/>
-        {candidates.map(c => <p>{JSON.stringify(c)}</p>)}
+        <BrowserRouter>
+          <Routes>
+            <Route path="/register" element={<Register/>}/>
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/map" element={<Map/>}/>
+            <Route path="/vote" element={
+              <ProtectedRoute>
+                <Vote/>
+              </ProtectedRoute>
+            }/>
+          </Routes>
+        </BrowserRouter>
       </div>
     </>
   )
