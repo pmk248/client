@@ -1,5 +1,5 @@
 import { ActionReducerMapBuilder, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { candidatesState, DataStatus } from "../../types/reduxTypes/reduxTypes";
+import { candidatesState, DataStatus } from "../../types/ResModels/reduxTypes";
 import { ICandidate } from "../../types/ResModels/ICandidate";
 
 const BASE_URL = "http://localhost:8200";

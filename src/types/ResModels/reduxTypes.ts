@@ -1,5 +1,5 @@
-import { ICandidate } from "../ResModels/ICandidate";
-import { IUser } from "../ResModels/IUser";
+import { ICandidate } from "./ICandidate";
+import { IUser } from "./IUser";
 
 export enum DataStatus {
     LOADING = "LOADING",
