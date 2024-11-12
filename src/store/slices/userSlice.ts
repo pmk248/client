@@ -25,6 +25,7 @@ export const fetchRegister = createAsyncThunk(
         if (res.status != 201) {
             return thunkApi.rejectWithValue("Could not register!");
         }
+        
     } catch (err) {
         thunkApi.rejectWithValue((err as Error).message);
     }
