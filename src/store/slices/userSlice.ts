@@ -59,7 +59,7 @@ export const fetchUser = createAsyncThunk(
     "user/user",
     async (_, thunkApi ) => {
     try {
-        const res = await fetch(`${BASE_URL}/login`, {
+        const res = await fetch(`${BASE_URL}/`, {
             headers: {
                 "Authorization": localStorage.getItem("Authorization")!
             }
